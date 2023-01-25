@@ -8,7 +8,7 @@ using System.Net;
 namespace backend.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class SummonerController : Controller
     {
         private readonly IMetadataItemService _ItemsService;
@@ -19,7 +19,7 @@ namespace backend.Controllers
             _SummonerProfileService = summonerProfileService;
         }
         [HttpGet(Name = "GetSummonerProfile")]
-        public async Task<ActionResult> Get(string summonerName, string region)
+        public async Task<ActionResult> GetSummonerProfile(string summonerName, string region)
         {
             if (!Enum.IsDefined(typeof(Regions), region))
             {
